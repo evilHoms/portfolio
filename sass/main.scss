@@ -1,0 +1,47 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+$min-width: 980px;
+$max-width: 1360px;
+$width: 100%;
+
+@mixin setWidth($min-w, $max-w, $w) {
+  min-width: $min-w;
+  width: $w;
+  max-width: $max-w;
+}
+
+
+.top-back {
+  position: fixed;
+  z-index: 1;
+
+  @include setWidth($min-width, $max-width, $width);
+  min-height: 100vh;
+
+  background: #7777aa;
+}
+
+.front {
+  position: relative;
+  z-index: 2;
+
+  @include setWidth($min-width, $max-width, $width);
+  min-height: 100px;
+
+  background: #777111;
+}
+
+.bottom-back {
+  position: fixed;
+  z-index: 0;
+
+  @include setWidth($min-width, $max-width, $width);
+  min-height: 100px;
+
+  background: #117177;
+}
