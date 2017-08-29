@@ -73,7 +73,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   z-index: 1;
   min-width: 980px;
   width: 100%;
-  max-width: 1360px;
+  max-width: 1400px;
   min-height: 100vh;
   background: #7777aa;
 }
@@ -81,21 +81,44 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 29, ../sass/main.scss */
 .front {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   min-width: 980px;
   width: 100%;
-  max-width: 1360px;
-  min-height: 100px;
+  max-width: 1400px;
+}
+/* line 36, ../sass/main.scss */
+.front .front__transparent-top {
+  min-width: 980px;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 100vh;
+  background: transparent;
+}
+/* line 43, ../sass/main.scss */
+.front .front__main {
+  min-width: 980px;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 100vh;
   background: #777111;
 }
+/* line 50, ../sass/main.scss */
+.front .front__transparent-bottom {
+  min-width: 980px;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 100px;
+  background: transparent;
+}
 
-/* line 39, ../sass/main.scss */
+/* line 58, ../sass/main.scss */
 .bottom-back {
   position: fixed;
+  bottom: 0;
   z-index: 0;
   min-width: 980px;
   width: 100%;
-  max-width: 1360px;
+  max-width: 1400px;
   min-height: 100px;
   background: #117177;
 }

@@ -6,7 +6,7 @@
 @import "compass/reset";
 
 $min-width: 980px;
-$max-width: 1360px;
+$max-width: 1400px;
 $width: 100%;
 
 @mixin setWidth($min-w, $max-w, $w) {
@@ -28,16 +28,36 @@ $width: 100%;
 
 .front {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 
   @include setWidth($min-width, $max-width, $width);
-  min-height: 100px;
+  
 
-  background: #777111;
+  .front__transparent-top {
+    @include setWidth($min-width, $max-width, $width);
+    min-height: 100vh;
+
+    background: transparent;
+  }
+
+  .front__main {
+    @include setWidth($min-width, $max-width, $width);
+    min-height: 100vh;
+
+    background: #777111;
+  }
+
+  .front__transparent-bottom {
+    @include setWidth($min-width, $max-width, $width);
+    min-height: 100px;
+
+    background: transparent;
+  }
 }
 
 .bottom-back {
   position: fixed;
+  bottom: 0;
   z-index: 0;
 
   @include setWidth($min-width, $max-width, $width);
