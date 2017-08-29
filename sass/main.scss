@@ -5,7 +5,7 @@
 
 @import "compass/reset";
 
-$content-width: 980px;
+$content-width: 1300px;
 $min-width: 100%;
 $max-width: 100%;
 $width: 100%;
@@ -76,7 +76,14 @@ $width: 100%;
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1400px) {
+  $content-width: 1080px;
+  .content {
+    width: $content-width;
+  }
+}
+
+@media screen and (max-width: 1100px) {
   $content-width: 720px;
   .content {
     width: $content-width;

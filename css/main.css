@@ -69,7 +69,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 19, ../sass/main.scss */
 .content {
-  width: 980px;
+  width: 1300px;
   margin: 0 auto;
   transition: 1s;
   background: rgba(50, 50, 50, 0.5);
@@ -131,26 +131,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background: #117177;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1400px) {
   /* line 81, ../sass/main.scss */
+  .content {
+    width: 1080px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  /* line 88, ../sass/main.scss */
   .content {
     width: 720px;
   }
 }
 @media screen and (max-width: 740px) {
-  /* line 88, ../sass/main.scss */
+  /* line 95, ../sass/main.scss */
   .content {
     width: 500px;
   }
 }
 @media screen and (max-width: 520px) {
-  /* line 95, ../sass/main.scss */
+  /* line 102, ../sass/main.scss */
   .content {
     width: 460px;
   }
 }
 @media screen and (max-width: 470px) {
-  /* line 102, ../sass/main.scss */
+  /* line 109, ../sass/main.scss */
   .content {
     width: 320px;
   }
