@@ -5,8 +5,9 @@
 
 @import "compass/reset";
 
-$min-width: 980px;
-$max-width: 1400px;
+$content-width: 980px;
+$min-width: 100%;
+$max-width: 100%;
 $width: 100%;
 
 @mixin setWidth($min-w, $max-w, $w) {
@@ -15,6 +16,14 @@ $width: 100%;
   max-width: $max-w;
 }
 
+.content {
+  width: $content-width;
+  margin: 0 auto;
+
+  transition: 1s;
+
+  background: rgba(50, 50, 50, 0.5);
+}
 
 .top-back {
   position: fixed;
@@ -64,4 +73,33 @@ $width: 100%;
   min-height: 100px;
 
   background: #117177;
+}
+
+
+@media screen and (max-width: 1000px) {
+  $content-width: 720px;
+  .content {
+    width: $content-width;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  $content-width: 500px;
+  .content {
+    width: $content-width;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  $content-width: 460px;
+  .content {
+    width: $content-width;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  $content-width: 320px;
+  .content {
+    width: $content-width;
+  }
 }
