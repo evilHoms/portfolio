@@ -10,10 +10,26 @@ $min-width: 100%;
 $max-width: 100%;
 $width: 100%;
 
+$accent-color: #3b5998;
+
 @mixin setWidth($min-w, $max-w, $w) {
   min-width: $min-w;
   width: $w;
   max-width: $max-w;
+}
+
+@mixin flCenter() {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flSpBetween() {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  overflow: hidden;
 }
 
 .content {
@@ -22,46 +38,109 @@ $width: 100%;
 
   transition: 1s;
 
-  background: rgba(50, 50, 50, 0.5);
+  /* background: rgba(50, 50, 50, 0.5); */
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  @include flCenter();
+  align-items: center;
+
+  color: #ffffff;
+  background: #000000;
+}
+
+.sneaky-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 5;
+
+  @include flSpBetween();
+
+  /* margin-top: -100vh; */
+  padding: 50px;
+
+  background: #ffffff;
+  /* background: rgba(50, 50, 50, 0.3); */
 }
 
 .top-back {
   position: fixed;
   z-index: 1;
+  /* margin-top: -100vh; */
 
   @include setWidth($min-width, $max-width, $width);
   min-height: 100vh;
 
   background: #7777aa;
+
+  .hello-mate__title {
+    @include flCenter();
+    padding-top: 45vh;
+
+    font-size: 54px;
+    color: #444444;
+    text-transform: uppercase;
+  }
+
+  .hello-mate__cool-introduction {
+    @include flCenter();
+    padding-top: 30px;
+  }
+
+  .hello-mate__links {
+    @include flCenter();
+    padding-top: 30px;
+  }
 }
 
 .front {
   position: relative;
   z-index: 3;
 
+  margin-top: 100vh;
+  margin-bottom: 120px;
+  min-height: 100vh;
   @include setWidth($min-width, $max-width, $width);
-  
 
-  .front__transparent-top {
-    @include setWidth($min-width, $max-width, $width);
-    min-height: 100vh;
+  background: #777111;
 
-    background: transparent;
+  .cool-front-title {
+    @include flCenter();
+    padding: 50px;
+
+    font-size: 36px;
+    color: #555555;
+    text-transform: uppercase;
   }
 
-  .front__main {
-    @include setWidth($min-width, $max-width, $width);
-    min-height: 100vh;
-
-    background: #777111;
+  .article-wrapper {
+    width: 45%;
   }
 
-  .front__transparent-bottom {
-    @include setWidth($min-width, $max-width, $width);
-    min-height: 100px;
-
-    background: transparent;
+  .im-cool,
+  .cool-story {
+    @include flSpBetween();
+    background: red;
   }
+
+  .im-cool__text,
+  .cool-story__text {
+    
+  }
+
+  .im-cool__img,
+  .cool-story__img {
+    width: 45%;
+  }
+
 }
 
 .bottom-back {
@@ -73,6 +152,18 @@ $width: 100%;
   min-height: 100px;
 
   background: #117177;
+
+  .bye__links {
+    @include flCenter();
+
+    padding: 40px 0 20px;
+  }
+
+  .copy-pls {
+    @include flCenter();
+
+    padding-bottom: 30px;
+  }
 }
 
 
