@@ -63,23 +63,22 @@ $accent-color: #3b5998;
   z-index: 5;
 
   @include flSpBetween();
-
-  /* margin-top: -100vh; */
   padding: 50px;
 
   background: #ffffff;
-  /* background: rgba(50, 50, 50, 0.3); */
+  box-shadow: 0 0 5px #555555;
+
+  transition: 1s;
 }
 
 .top-back {
   position: fixed;
   z-index: 1;
-  /* margin-top: -100vh; */
 
   @include setWidth($min-width, $max-width, $width);
   min-height: 100vh;
 
-  background: #7777aa;
+  background: #8888ff;
 
   .hello-mate__title {
     @include flCenter();
@@ -110,11 +109,11 @@ $accent-color: #3b5998;
   min-height: 100vh;
   @include setWidth($min-width, $max-width, $width);
 
-  background: #777111;
+  background: #ffffff;
 
   .cool-front-title {
     @include flCenter();
-    padding: 50px;
+    padding: 80px;
 
     font-size: 36px;
     color: #555555;
@@ -128,16 +127,26 @@ $accent-color: #3b5998;
   .im-cool,
   .cool-story {
     @include flSpBetween();
-    background: red;
+    padding-top: 50px;
   }
 
+  .im-cool__title,
+  .cool-story__title {
+    text-align: center;
+  }
+  
   .im-cool__text,
   .cool-story__text {
-    
+    padding-top: 80px;
+    padding-bottom: 130px;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .im-cool__img,
   .cool-story__img {
+    @include flCenter();
+    align-items: center;
     width: 45%;
   }
 
@@ -151,7 +160,7 @@ $accent-color: #3b5998;
   @include setWidth($min-width, $max-width, $width);
   min-height: 100px;
 
-  background: #117177;
+  background: #8888ff;
 
   .bye__links {
     @include flCenter();

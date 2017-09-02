@@ -103,24 +103,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   z-index: 5;
   display: flex;
   justify-content: space-between;
-  /* margin-top: -100vh; */
   padding: 50px;
   background: #ffffff;
-  /* background: rgba(50, 50, 50, 0.3); */
+  box-shadow: 0 0 5px #555555;
+  transition: 1s;
 }
 
 /* line 74, ../sass/main.scss */
 .top-back {
   position: fixed;
   z-index: 1;
-  /* margin-top: -100vh; */
   min-width: 100%;
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
-  background: #7777aa;
+  background: #8888ff;
 }
-/* line 84, ../sass/main.scss */
+/* line 83, ../sass/main.scss */
 .top-back .hello-mate__title {
   display: flex;
   justify-content: center;
@@ -129,20 +128,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: #444444;
   text-transform: uppercase;
 }
-/* line 93, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .top-back .hello-mate__cool-introduction {
   display: flex;
   justify-content: center;
   padding-top: 30px;
 }
-/* line 98, ../sass/main.scss */
+/* line 97, ../sass/main.scss */
 .top-back .hello-mate__links {
   display: flex;
   justify-content: center;
   padding-top: 30px;
 }
 
-/* line 104, ../sass/main.scss */
+/* line 103, ../sass/main.scss */
 .front {
   position: relative;
   z-index: 3;
@@ -152,35 +151,51 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   min-width: 100%;
   width: 100%;
   max-width: 100%;
-  background: #777111;
+  background: #ffffff;
 }
-/* line 115, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 .front .cool-front-title {
   display: flex;
   justify-content: center;
-  padding: 50px;
+  padding: 80px;
   font-size: 36px;
   color: #555555;
   text-transform: uppercase;
 }
-/* line 124, ../sass/main.scss */
+/* line 123, ../sass/main.scss */
 .front .article-wrapper {
   width: 45%;
 }
-/* line 128, ../sass/main.scss */
+/* line 127, ../sass/main.scss */
 .front .im-cool,
 .front .cool-story {
   display: flex;
   justify-content: space-between;
-  background: red;
+  padding-top: 50px;
 }
-/* line 139, ../sass/main.scss */
+/* line 133, ../sass/main.scss */
+.front .im-cool__title,
+.front .cool-story__title {
+  text-align: center;
+}
+/* line 138, ../sass/main.scss */
+.front .im-cool__text,
+.front .cool-story__text {
+  padding-top: 80px;
+  padding-bottom: 130px;
+  width: 90%;
+  margin: 0 auto;
+}
+/* line 146, ../sass/main.scss */
 .front .im-cool__img,
 .front .cool-story__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 45%;
 }
 
-/* line 146, ../sass/main.scss */
+/* line 155, ../sass/main.scss */
 .bottom-back {
   position: fixed;
   bottom: 0;
@@ -189,15 +204,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 100%;
   max-width: 100%;
   min-height: 100px;
-  background: #117177;
+  background: #8888ff;
 }
-/* line 156, ../sass/main.scss */
+/* line 165, ../sass/main.scss */
 .bottom-back .bye__links {
   display: flex;
   justify-content: center;
   padding: 40px 0 20px;
 }
-/* line 162, ../sass/main.scss */
+/* line 171, ../sass/main.scss */
 .bottom-back .copy-pls {
   display: flex;
   justify-content: center;
@@ -205,31 +220,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 @media screen and (max-width: 1400px) {
-  /* line 172, ../sass/main.scss */
+  /* line 181, ../sass/main.scss */
   .content {
     width: 1080px;
   }
 }
 @media screen and (max-width: 1100px) {
-  /* line 179, ../sass/main.scss */
+  /* line 188, ../sass/main.scss */
   .content {
     width: 720px;
   }
 }
 @media screen and (max-width: 740px) {
-  /* line 186, ../sass/main.scss */
+  /* line 195, ../sass/main.scss */
   .content {
     width: 500px;
   }
 }
 @media screen and (max-width: 520px) {
-  /* line 193, ../sass/main.scss */
+  /* line 202, ../sass/main.scss */
   .content {
     width: 460px;
   }
 }
 @media screen and (max-width: 470px) {
-  /* line 200, ../sass/main.scss */
+  /* line 209, ../sass/main.scss */
   .content {
     width: 320px;
   }
