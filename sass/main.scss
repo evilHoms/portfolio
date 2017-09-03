@@ -10,6 +10,10 @@ $min-width: 100%;
 $max-width: 100%;
 $width: 100%;
 
+$sans-serif-font: 'Source Sans Pro', sans-serif;
+$serif-font: 'Lora', serif;
+$cursive-font: 'Neucha', cursive;
+
 $accent-color: #3b5998;
 
 @mixin setWidth($min-w, $max-w, $w) {
@@ -26,6 +30,10 @@ $accent-color: #3b5998;
 @mixin flSpBetween() {
   display: flex;
   justify-content: space-between;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 .wrapper {
@@ -58,17 +66,42 @@ $accent-color: #3b5998;
 
 .sneaky-panel {
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 5;
 
   @include flSpBetween();
-  padding: 50px;
+  padding: 30px 0 30px 70px;
 
   background: #ffffff;
   box-shadow: 0 0 5px #555555;
 
   transition: 1s;
+}
+
+.sneaky-panel__cool-face {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+  background: #ccccff url(../img/face.svg) no-repeat 0 0;
+  background-size: 70px;
+}
+
+.sneaky-panel__links {
+  padding: 25px 50px;
+
+  a {
+    padding-left: 30px;
+
+    font-family: $sans-serif-font;
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #555555;
+  }
 }
 
 .top-back {
@@ -78,13 +111,18 @@ $accent-color: #3b5998;
   @include setWidth($min-width, $max-width, $width);
   min-height: 100vh;
 
-  background: #8888ff;
+  background: url(../img/cloud.svg) no-repeat 77% 30%,
+              url(../img/cloud.svg) no-repeat 18% 50%,
+              url(../img/cloud.svg) no-repeat 87% 75%,
+              #bbbbff ;
+  background-size: 200px;
 
   .hello-mate__title {
     @include flCenter();
     padding-top: 45vh;
 
-    font-size: 54px;
+    font-family: $cursive-font;
+    font-size: 7rem;
     color: #444444;
     text-transform: uppercase;
   }
@@ -92,11 +130,21 @@ $accent-color: #3b5998;
   .hello-mate__cool-introduction {
     @include flCenter();
     padding-top: 30px;
+    
+    font-size: 1.8rem;
+    font-family: $sans-serif-font;
   }
 
   .hello-mate__links {
     @include flCenter();
     padding-top: 30px;
+
+    .hello-social {
+      padding: 5px;
+
+      font-size: 2rem;
+      color: #000000;
+    }
   }
 }
 
@@ -160,7 +208,7 @@ $accent-color: #3b5998;
   @include setWidth($min-width, $max-width, $width);
   min-height: 100px;
 
-  background: #8888ff;
+  background: #bbbbff url(../img/grass.svg) repeat-x;
 
   .bye__links {
     @include flCenter();
