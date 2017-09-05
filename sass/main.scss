@@ -14,7 +14,8 @@ $sans-serif-font: 'Source Sans Pro', sans-serif;
 $serif-font: 'Lora', serif;
 $cursive-font: 'Neucha', cursive;
 
-$accent-color: #3b5998;
+$main-color: #444444;
+$accent-color: #ff7400;
 
 @mixin setWidth($min-w, $max-w, $w) {
   min-width: $min-w;
@@ -74,10 +75,10 @@ html {
   @include flSpBetween();
   padding: 30px 0 30px 70px;
 
-  background: #ffffff;
-  box-shadow: 0 0 5px #555555;
+  background-color: rgba(255, 255, 255, 0.0);
+  box-shadow: none;
 
-  transition: 1s;
+  transition: 0.7s;
 }
 
 .sneaky-panel__cool-face {
@@ -85,7 +86,7 @@ html {
   height: 70px;
 
   border-radius: 50%;
-  background: #ccccff url(../img/face.svg) no-repeat 0 0;
+  background: #ccccff url(../img/face.svg) no-repeat 0 3px;
   background-size: 70px;
 }
 
@@ -100,7 +101,13 @@ html {
     font-size: 2rem;
     text-transform: capitalize;
     text-decoration: none;
-    color: #555555;
+    color: $main-color;
+
+    transition: 0.5s;
+
+    &:hover {
+      color: $accent-color;
+    }
   }
 }
 
@@ -111,19 +118,19 @@ html {
   @include setWidth($min-width, $max-width, $width);
   min-height: 100vh;
 
-  background: url(../img/cloud.svg) no-repeat 77% 30%,
-              url(../img/cloud.svg) no-repeat 18% 50%,
-              url(../img/cloud.svg) no-repeat 87% 75%,
+  background: url(../img/cloud.svg) no-repeat 65% 20%,
+              url(../img/cloud.svg) no-repeat 18% 55%,
+              url(../img/cloud.svg) no-repeat 87% 70%,
               #bbbbff ;
-  background-size: 200px;
+  background-size: 17%;
 
   .hello-mate__title {
     @include flCenter();
-    padding-top: 45vh;
+    padding-top: 40vh;
 
     font-family: $cursive-font;
     font-size: 7rem;
-    color: #444444;
+    color: $accent-color;
     text-transform: uppercase;
   }
 
@@ -133,6 +140,7 @@ html {
     
     font-size: 1.8rem;
     font-family: $sans-serif-font;
+    color: $main-color;
   }
 
   .hello-mate__links {
@@ -143,7 +151,11 @@ html {
       padding: 5px;
 
       font-size: 2rem;
-      color: #000000;
+      color: $main-color;
+
+      &:hover {
+        color: $accent-color;
+      }
     }
   }
 }
@@ -163,8 +175,9 @@ html {
     @include flCenter();
     padding: 80px;
 
-    font-size: 36px;
-    color: #555555;
+    font-family: $cursive-font;
+    font-size: 4.2rem;
+    color: $accent-color;
     text-transform: uppercase;
   }
 
@@ -181,14 +194,22 @@ html {
   .im-cool__title,
   .cool-story__title {
     text-align: center;
+
+    font-family: $serif-font;
+    color: $main-color;
+    font-size: 3rem;
   }
   
   .im-cool__text,
   .cool-story__text {
     padding-top: 80px;
-    padding-bottom: 130px;
+    padding-bottom: 160px;
     width: 90%;
     margin: 0 auto;
+
+    font-family: $sans-serif-font;
+    color: $main-color;
+    font-size: 2rem;
   }
 
   .im-cool__img,
@@ -208,18 +229,32 @@ html {
   @include setWidth($min-width, $max-width, $width);
   min-height: 100px;
 
-  background: #bbbbff url(../img/grass.svg) repeat-x;
+  background: #bbbbff url(../img/grass.svg) repeat-x 0 bottom;
+  background-size: 25%;
 
   .bye__links {
     @include flCenter();
-
     padding: 40px 0 20px;
+
+    a {
+      padding: 5px;
+
+      font-size: 2rem;
+      color: $main-color;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
   }
 
   .copy-pls {
     @include flCenter();
-
     padding-bottom: 30px;
+
+    font-family: $sans-serif-font;
+    font-size: 1.5rem;
+    color: $main-color;
   }
 }
 

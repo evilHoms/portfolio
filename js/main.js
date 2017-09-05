@@ -31,6 +31,15 @@ function documentScrolled () {
 
   }
 
+  function isScrollOnTop() {
+    if (window.scrollY < 200) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   return () => {
     if (window.scrollY > window.innerHeight) {
       bottom.style.zIndex = '2';
@@ -44,6 +53,15 @@ function documentScrolled () {
     }
     else {
       sneakyPanel.style.top = 0;
+    }
+
+    if (isScrollOnTop()) {
+      sneakyPanel.style.backgroundColor = `rgba(255, 255, 255, 0.0)`;
+      sneakyPanel.style.boxShadow = `none`;
+    }
+    else {
+      sneakyPanel.style.backgroundColor = `rgba(255, 255, 255, 1.0)`;
+      sneakyPanel.style.boxShadow = `0 0 5px #555555`;
     }
   }
 }
