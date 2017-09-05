@@ -16,6 +16,7 @@ $cursive-font: 'Neucha', cursive;
 
 $main-color: #444444;
 $accent-color: #ff7400;
+$sky-color: #ddddFF;
 
 @mixin setWidth($min-w, $max-w, $w) {
   min-width: $min-w;
@@ -73,12 +74,12 @@ html {
   z-index: 5;
 
   @include flSpBetween();
-  padding: 30px 0 30px 70px;
+  padding: 30px 0 30px 200px;
 
   background-color: rgba(255, 255, 255, 0.0);
   box-shadow: none;
 
-  transition: 0.7s;
+  transition:  top 0.7s, box-shadow 0.7s, background-color 0.7s;
 }
 
 .sneaky-panel__cool-face {
@@ -86,12 +87,12 @@ html {
   height: 70px;
 
   border-radius: 50%;
-  background: #ccccff url(../img/face.svg) no-repeat 0 3px;
+  background: #eeeeff url(../img/face.svg) no-repeat 0 3px;
   background-size: 70px;
 }
 
 .sneaky-panel__links {
-  padding: 25px 50px;
+  padding: 25px 200px;
 
   a {
     padding-left: 30px;
@@ -118,10 +119,11 @@ html {
   @include setWidth($min-width, $max-width, $width);
   min-height: 100vh;
 
-  background: url(../img/cloud.svg) no-repeat 65% 20%,
-              url(../img/cloud.svg) no-repeat 18% 55%,
-              url(../img/cloud.svg) no-repeat 87% 70%,
-              #bbbbff ;
+  background: /* url(../img/sun.svg) no-repeat 20px 20px, */
+              /* url(../img/cloud2.svg) no-repeat 60% 15%, */
+              url(../img/cloud2.svg) no-repeat 18% 60%,
+              url(../img/cloud2.svg) no-repeat 87% 40%,
+              $sky-color ;
   background-size: 17%;
 
   .hello-mate__title {
@@ -161,15 +163,13 @@ html {
 }
 
 .front {
-  position: relative;
-  z-index: 3;
-
   margin-top: 100vh;
   margin-bottom: 120px;
   min-height: 100vh;
   @include setWidth($min-width, $max-width, $width);
 
   background: #ffffff;
+  box-shadow: 0 0 5px #aaaaff;
 
   .cool-front-title {
     @include flCenter();
@@ -221,6 +221,24 @@ html {
 
 }
 
+.works-page {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.contacts-page {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.about-page {
+  position: relative;
+  top: 0;
+  z-index: 3;
+}
+
 .bottom-back {
   position: fixed;
   bottom: 0;
@@ -229,7 +247,7 @@ html {
   @include setWidth($min-width, $max-width, $width);
   min-height: 100px;
 
-  background: #bbbbff url(../img/grass.svg) repeat-x 0 bottom;
+  background: $sky-color url(../img/grass.svg) repeat-x 0 bottom;
   background-size: 25%;
 
   .bye__links {
