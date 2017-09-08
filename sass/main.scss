@@ -43,6 +43,8 @@ html {
 }
 
 .content {
+  position: relative;
+
   width: $content-width;
   margin: 0 auto;
 
@@ -163,13 +165,19 @@ html {
 }
 
 .front {
+  position: relative;
+
   margin-top: 100vh;
   margin-bottom: 120px;
   min-height: 100vh;
-  @include setWidth($min-width, $max-width, $width);
+  
+  z-index: 3;
 
   background: #ffffff;
   box-shadow: 0 0 5px #aaaaff;
+
+  overflow: hidden;
+  transition: 1s;
 
   .cool-front-title {
     @include flCenter();
@@ -219,25 +227,34 @@ html {
     width: 45%;
   }
 
+  .works-page {
+    position: absolute;
+    min-height: 100vh;
+    @include setWidth($min-width, $max-width, $width);
+    top: 0;
+
+    transition: 1s;
+  }
+
+  .contacts-page {
+    position: absolute;
+    min-height: 100vh;
+    @include setWidth($min-width, $max-width, $width);
+    top: 0;
+
+    transition: 1s;
+  }
+
+  .about-page {
+    position: absolute;
+    min-height: 100vh;
+    @include setWidth($min-width, $max-width, $width);
+    top: 0;
+
+    transition: 1s;
+  }
 }
 
-.works-page {
-  position: absolute;
-  top: 0;
-  z-index: 0;
-}
-
-.contacts-page {
-  position: absolute;
-  top: 0;
-  z-index: 0;
-}
-
-.about-page {
-  position: relative;
-  top: 0;
-  z-index: 3;
-}
 
 .bottom-back {
   position: fixed;
