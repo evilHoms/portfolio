@@ -5,24 +5,47 @@ const sneakyPanel = document.querySelector(`.sneaky-panel`);
 
 const headerHeight = sneakyPanel.offsetHeight;
 
-const about = document.querySelector(`.about`);
-const works = document.querySelector(`.works`);
-const contacts = document.querySelector(`.contacts`);
+const slideElements = document.querySelectorAll(`.slider-item`);
+const sliderWrapper = document.querySelector(`.front`);
+const btnsToElem = document.querySelectorAll(`.sneaky-link`);
 
-const frontWrapper = document.querySelector(`.front`);
-const aboutPage = document.querySelector(`.about-page`);
-const worksPage = document.querySelector(`.works-page`);
-const contactsPage = document.querySelector(`.contacts-page`);
+correctSliderWrapperHeight(sliderWrapper, slideElements[0]);
 
-let currentPage = `about`;
+for (let i = 0; i < btnsToElem.length; i++) {
+  console.log(`i = ${i}`);
+  btnsToElem[i].addEventListener(`click`, (e) => {
+    
+    for (let j = 0; j < slideElements.length; j++) {
+      console.log(`j = ${j}`);
+      if (j < i) {
+        if (!slideElements[j].classList.contains(`left-page`)) {
+          slideElements[j].classList.add(`left-page`);
+          slideElements[j].classList.remove(`right-page`);
+          slideElements[j].classList.remove(`center-page`);
+        }
+      }
+      else if (j === i) {
+        if (!slideElements[j].classList.contains(`center-page`)) {
+          slideElements[j].classList.add(`center-page`);
+          slideElements[j].classList.remove(`right-page`);
+          slideElements[j].classList.remove(`left-page`);
+        }
+      }
+      else if (j > i) {
+        if (!slideElements[j].classList.contains(`right-page`)) {
+          slideElements[j].classList.add(`right-page`);
+          slideElements[j].classList.remove(`center-page`);
+          slideElements[j].classList.remove(`left-page`);
+        }
+      }
+    }
+  });
+}
 
-initStartPage();
-
-about.addEventListener(`click`, aboutClicked);
-works.addEventListener(`click`, worksClicked);
-contacts.addEventListener(`click`, contactsClicked);
+initStartPage(slideElements, sliderWrapper);
 
 window.addEventListener(`load`, disableLoader);
+
 document.addEventListener(`scroll`, documentScrolled());
 
 function disableLoader() {
@@ -48,10 +71,10 @@ function documentScrolled () {
 
   }
 
-  function isScrollOnTop() {
-    let screenHeight = window.innerHeight;
+  function isScrollOnTop(cordOfTop) {
+    let screenHeight = cordOfTop;
 
-    if (window.scrollY < screenHeight - sneakyPanel.offsetHeight) {
+    if (window.scrollY < screenHeight) {
       return true;
     }
     else {
@@ -59,118 +82,66 @@ function documentScrolled () {
     }
   }
 
-  return () => {
+  function showHideFooter() {
     if (window.scrollY > window.innerHeight) {
       bottom.style.zIndex = '2';
     }
     else {
       bottom.style.zIndex = '0';
     }
+  }
 
-    if (isScrollDown() && !isScrollOnTop()) {
+  function showHideSneakyPanel() {
+    if (isScrollDown() && !isScrollOnTop(window.innerHeight - sneakyPanel.offsetHeight)) {
       sneakyPanel.style.top = `-${headerHeight + 10}px`;
     }
     else {
       sneakyPanel.style.top = 0;
     }
+  }
 
-    if (isScrollOnTop()) {
-      sneakyPanel.style.backgroundColor = `rgba(255, 255, 255, 0.0)`;
-      sneakyPanel.style.boxShadow = `none`;
+  function changeTransparencySneakyPanel() {
+    if (sneakyPanel.classList.contains(`solid-panel`) && isScrollOnTop(window.innerHeight + 10)) {
+      sneakyPanel.classList.add(`transparent-panel`);
+      sneakyPanel.classList.remove(`solid-panel`);
     }
-    else {
-      sneakyPanel.style.backgroundColor = `rgba(255, 255, 255, 1.0)`;
-      sneakyPanel.style.boxShadow = `0 0 5px #555555`;
+    else if (!sneakyPanel.classList.contains(`solid-panel`) && !isScrollOnTop(window.innerHeight + 10)) {
+      sneakyPanel.classList.add(`solid-panel`);
+      sneakyPanel.classList.remove(`transparent-panel`);
     }
   }
-}
 
-function aboutClicked() {
-  if (currentPage != `about`) {
-    currentPage = `about`;
-    changeHeight(frontWrapper, aboutPage);
-    slidePosition();
-    console.log(`About clicked`);
-
-    /*aboutPage.style.position = `relative`;
-    aboutPage.style.zIndex = `3`;
-    worksPage.style.position = `absolute`;
-    worksPage.style.zIndex = `0`;
-    contactsPage.style.position = `absolute`;
-    contactsPage.style.zIndex = `0`;
-    contactsPage.style.display = `none`;
-    aboutPage.style.display = `block`;
-    worksPage.style.display = `none`;*/
+  return () => {
+    showHideFooter();
+    showHideSneakyPanel();
+    changeTransparencySneakyPanel();
   }
 }
 
-function worksClicked() {
-  if (currentPage != `works`) {
-    currentPage = `works`;
-    changeHeight(frontWrapper, worksPage);
-    slidePosition();
-    console.log(`Works clicked`);
-
-    /*worksPage.style.position = `relative`;
-    worksPage.style.zIndex = `3`;
-    aboutPage.style.position = `absolute`;
-    aboutPage.style.zIndex = `0`;
-    contactsPage.style.position = `absolute`;
-    contactsPage.style.zIndex = `0`;
-    contactsPage.style.display = `none`;
-    aboutPage.style.display = `none`;
-    worksPage.style.display = `block`;*/
+/*Инициализируем начальные положения страниц в сдайдере(.front)
+и задаем ему высоту начального элемента
+arrOfPages: массив с элементами слайдера, начальный элемент будет центральнм
+wrapper: сам слайдер
+*/
+function initStartPage(arrOfPages, wrapper) {
+  arrOfPages[0].classList.add(`center-page`);
+  for (let i = 1; i < arrOfPages.length; i++) {
+    arrOfPages[i].classList.add(`right-page`);
   }
+  correctSliderWrapperHeight(wrapper,arrOfPages[0]);
 }
 
-function contactsClicked() {
-  if (currentPage != `contacts`) {
-    currentPage = `contacts`;
-    changeHeight(frontWrapper, contactsPage);
-    slidePosition();
-    console.log(`Contacts clicked`);
 
-    /*contactsPage.style.position = `relative`;
-    contactsPage.style.zIndex = `3`;
-    worksPage.style.position = `absolute`;
-    worksPage.style.zIndex = `0`;
-    aboutPage.style.position = `absolute`;
-    aboutPage.style.zIndex = `0`;
-    contactsPage.style.display = `block`;
-    aboutPage.style.display = `none`;
-    worksPage.style.display = `none`;*/
-  }
+function correctSliderWrapperHeight(wrapper, curElem) {
+  console.log(curElem.offsetHeight);
+  wrapper.style.height = `${curElem.offsetHeight}px`;
 }
 
-function changeHeight(pageToBeChanged, pageChangeFrom) {
-  pageToBeChanged.style.height = `${pageChangeFrom.offsetHeight}px`;
-}
-
-function slidePosition(curPage = currentPage, wrapper = frontWrapper) {
-  switch (curPage) {
-    case `about`:
-      aboutPage.style.left = 0;
-      worksPage.style.left = `${-wrapper.offsetWidth}px`;
-      contactsPage.style.left = `${wrapper.offsetWidth}px`;
-      break;
-    case `works`:
-      worksPage.style.left = 0;
-      aboutPage.style.left = `${wrapper.offsetWidth}px`;
-      contactsPage.style.left = `${wrapper.offsetWidth * 2}px`;
-      break;
-    case `contacts`:
-      contactsPage.style.left = 0;
-      worksPage.style.left = `${-wrapper.offsetWidth * 2}px`;
-      aboutPage.style.left = `${-wrapper.offsetWidth}px`;
-      break;
-    default:
-      console.log(`Some problem in slidePosition function`);
-  }
-}
-
-function initStartPage(arrOfPages = [aboutPage, worksPage, contactsPage], wrapper = frontWrapper) {
-  wrapper.style.height = `${arrOfPages[0].offsetHeight}px`;
-  arrOfPages[0].style.left = 0;
-  arrOfPages[1].style.left = `${-wrapper.offsetWidth}px`;
-  arrOfPages[2].style.left = `${wrapper.offsetWidth}px`; 
+function smoothScroll(target) {
+  console.log(window.scrollY);
+  /*Разобраться с определением положения элемента getBoundingClientRect 
+  дает положение относительно вьюпорта, нужно расчитать вместе со scrollY
+  и вычислить положение элемента относително страницы
+  */
+  console.log(document.querySelector(`#about`).getBoundingClientRect());
 }

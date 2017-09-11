@@ -47,8 +47,7 @@ html {
 
   width: $content-width;
   margin: 0 auto;
-
-  transition: 1s;
+  height: 100%;
 
   /* background: rgba(50, 50, 50, 0.5); */
 }
@@ -78,40 +77,47 @@ html {
   @include flSpBetween();
   padding: 30px 0 30px 200px;
 
-  background-color: rgba(255, 255, 255, 0.0);
-  box-shadow: none;
-
   transition:  top 0.7s, box-shadow 0.7s, background-color 0.7s;
-}
 
-.sneaky-panel__cool-face {
-  width: 70px;
-  height: 70px;
+  .sneaky-panel__cool-face {
+    width: 70px;
+    height: 70px;
 
-  border-radius: 50%;
-  background: #eeeeff url(../img/face.svg) no-repeat 0 3px;
-  background-size: 70px;
-}
+    border-radius: 50%;
+    background: #eeeeff url(../img/face.svg) no-repeat 0 3px;
+    background-size: 70px;
+  }
 
-.sneaky-panel__links {
-  padding: 25px 200px;
+  .sneaky-panel__links {
+    padding: 25px 200px;
 
-  a {
-    padding-left: 30px;
+    a {
+      padding-left: 30px;
 
-    font-family: $sans-serif-font;
-    font-weight: 700;
-    font-size: 2rem;
-    text-transform: capitalize;
-    text-decoration: none;
-    color: $main-color;
+      font-family: $sans-serif-font;
+      font-weight: 700;
+      font-size: 2rem;
+      text-transform: capitalize;
+      text-decoration: none;
+      color: $main-color;
 
-    transition: 0.5s;
+      transition: 0.5s;
 
-    &:hover {
-      color: $accent-color;
+      &:hover {
+        color: $accent-color;
+      }
     }
   }
+}
+
+.transparent-panel {
+  background-color: rgba(255, 255, 255, 0.0);
+  box-shadow: none;
+}
+
+.solid-panel {
+  background-color: rgba(255, 255, 255, 1.0);
+  box-shadow: 0 0 5px #555555;
 }
 
 .top-back {
@@ -121,9 +127,7 @@ html {
   @include setWidth($min-width, $max-width, $width);
   min-height: 100vh;
 
-  background: /* url(../img/sun.svg) no-repeat 20px 20px, */
-              /* url(../img/cloud2.svg) no-repeat 60% 15%, */
-              url(../img/cloud2.svg) no-repeat 18% 60%,
+  background: url(../img/cloud2.svg) no-repeat 18% 60%,
               url(../img/cloud2.svg) no-repeat 87% 40%,
               $sky-color ;
   background-size: 17%;
@@ -177,81 +181,76 @@ html {
   box-shadow: 0 0 5px #aaaaff;
 
   overflow: hidden;
-  transition: 1s;
 
-  .cool-front-title {
-    @include flCenter();
-    padding: 80px;
-
-    font-family: $cursive-font;
-    font-size: 4.2rem;
-    color: $accent-color;
-    text-transform: uppercase;
-  }
-
-  .article-wrapper {
-    width: 45%;
-  }
-
-  .im-cool,
-  .cool-story {
-    @include flSpBetween();
-    padding-top: 50px;
-  }
-
-  .im-cool__title,
-  .cool-story__title {
-    text-align: center;
-
-    font-family: $serif-font;
-    color: $main-color;
-    font-size: 3rem;
-  }
-  
-  .im-cool__text,
-  .cool-story__text {
-    padding-top: 80px;
-    padding-bottom: 160px;
-    width: 90%;
-    margin: 0 auto;
-
-    font-family: $sans-serif-font;
-    color: $main-color;
-    font-size: 2rem;
-  }
-
-  .im-cool__img,
-  .cool-story__img {
-    @include flCenter();
-    align-items: center;
-    width: 45%;
-  }
-
-  .works-page {
+  .slider-item {
     position: absolute;
     min-height: 100vh;
-    @include setWidth($min-width, $max-width, $width);
-    top: 0;
+    width: 100%;
 
-    transition: 1s;
+    transition: 0.3s;
+
+    .cool-front-title {
+      @include flCenter();
+      padding: 50px;
+
+      font-family: $cursive-font;
+      font-size: 4.2rem;
+      color: $accent-color;
+      text-transform: uppercase;
+    }
+
+    .article-wrapper {
+      width: 45%;
+    }
+
+    .im-cool,
+    .cool-story {
+      @include flSpBetween();
+      padding-top: 50px;
+    }
+
+    .im-cool__title,
+    .cool-story__title {
+      text-align: center;
+
+      font-family: $serif-font;
+      color: $main-color;
+      font-size: 3rem;
+    }
+    
+    .im-cool__text,
+    .cool-story__text {
+      padding-top: 80px;
+      padding-bottom: 160px;
+      width: 90%;
+      margin: 0 auto;
+
+      font-family: $sans-serif-font;
+      color: $main-color;
+      font-size: 2rem;
+    }
+
+    .im-cool__img,
+    .cool-story__img {
+      @include flCenter();
+      align-items: center;
+      width: 45%;
+    }
   }
 
-  .contacts-page {
-    position: absolute;
-    min-height: 100vh;
-    @include setWidth($min-width, $max-width, $width);
-    top: 0;
-
-    transition: 1s;
+  .left-page {
+    right: 0;
+    left: -100%;
   }
 
-  .about-page {
-    position: absolute;
-    min-height: 100vh;
-    @include setWidth($min-width, $max-width, $width);
-    top: 0;
+  .center-page {
+    left: 0;
+    right: 100%;
+  }
 
-    transition: 1s;
+  .right-page {
+    left: 100%;
+    right: 200%;
   }
 }
 
