@@ -9,8 +9,6 @@ const slideElements = document.querySelectorAll(`.slider-item`);
 const sliderWrapper = document.querySelector(`.front`);
 const btnsToElem = document.querySelectorAll(`.sneaky-link`);
 
-correctSliderWrapperHeight(sliderWrapper, slideElements[0]);
-
 for (let i = 0; i < btnsToElem.length; i++) {
   console.log(`i = ${i}`);
   btnsToElem[i].addEventListener(`click`, (e) => {
@@ -29,6 +27,7 @@ for (let i = 0; i < btnsToElem.length; i++) {
           slideElements[j].classList.add(`center-page`);
           slideElements[j].classList.remove(`right-page`);
           slideElements[j].classList.remove(`left-page`);
+          correctSliderWrapperHeight(sliderWrapper, slideElements[j]);
         }
       }
       else if (j > i) {
