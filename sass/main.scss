@@ -14,8 +14,10 @@ $sans-serif-font: 'Source Sans Pro', sans-serif;
 $serif-font: 'Lora', serif;
 $cursive-font: 'Neucha', cursive;
 
-$main-color: #444444;
+$main-color: #1B6262;
+$text-color: #386B6B;
 $accent-color: #ff7400;
+$titles-color: #A3622C;
 $sky-color: #ddddFF;
 
 @mixin setWidth($min-w, $max-w, $w) {
@@ -136,10 +138,19 @@ html {
     @include flCenter();
     padding-top: 40vh;
 
-    font-family: $cursive-font;
-    font-size: 7rem;
+    font-family: 'Marck Script', cursive;
+    font-size: 10rem;
     color: $accent-color;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+  }
+
+  .hello-mate__my-name {
+    @include flCenter();
+    padding-top: 30px;
+    
+    font-size: 4rem;
+    font-family: $serif-font;
+    color: $main-color;
   }
 
   .hello-mate__cool-introduction {
@@ -148,7 +159,7 @@ html {
     
     font-size: 1.8rem;
     font-family: $sans-serif-font;
-    color: $main-color;
+    color: $titles-color;
   }
 
   .hello-mate__links {
@@ -159,10 +170,10 @@ html {
       padding: 5px;
 
       font-size: 2rem;
-      color: $main-color;
+      color: $titles-color;
 
       &:hover {
-        color: $accent-color;
+        color: $main-color;
       }
     }
   }
@@ -174,6 +185,7 @@ html {
   margin-top: 100vh;
   margin-bottom: 120px;
   min-height: 100vh;
+  padding-bottom: 120px;
   
   z-index: 3;
 
@@ -226,7 +238,7 @@ html {
       margin: 0 auto;
 
       font-family: $sans-serif-font;
-      color: $main-color;
+      color: $text-color;
       font-size: 2rem;
     }
 
@@ -237,6 +249,78 @@ html {
       width: 45%;
     }
   }
+
+  .front__contact-me {
+    @include flCenter();
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+
+    font-size: 2rem;
+    color: $text-color;
+
+    .contact-me__name {
+      padding-bottom: 40px;
+
+      font-family: $cursive-font;
+      color: $accent-color;
+      font-size: 4rem;
+    }
+
+    .contact-me__im-one {
+      padding-bottom: 40px;
+
+      font-family: $sans-serif-font;
+      color: $titles-color;
+      font-size: 3rem;
+    }
+
+    .contact-me__text {
+      line-height: 1.3;
+      font-family: $sans-serif-font;
+    }
+
+    .msg-btn {
+      width: 200px;
+      padding: 20px;
+      margin-top: 40px;
+      
+      border: none;
+      border-radius: 3px;
+      background: #ff7400;
+      color: #ddddff;
+      text-transform: uppercase;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-family: $cursive-font;
+      
+      cursor: pointer;
+      
+      transition: 0.3s;
+      
+      &:hover {
+        /* background: #ff8410;
+        color: #1B6262; */
+        box-shadow: 0 0 7px grey;
+        transform: scale(1.05);
+      }
+      
+      &:active {
+        background: #d96000;
+        color: #ddddff;
+        box-shadow: 0 0 7px grey;
+        transform: scale(0.95);
+      }
+      
+      &:focus {
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 19px;
+      }
+    }
+  }
+  
 
   .left-page {
     right: 0;
