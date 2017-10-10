@@ -3,11 +3,15 @@
 const bottom = document.querySelector(`.bottom-back`);
 const sneakyPanel = document.querySelector(`.sneaky-panel`);
 
+const languageBtn = document.querySelector(`.language`);
+
 const headerHeight = sneakyPanel.offsetHeight;
 
 const slideElements = document.querySelectorAll(`.slider-item`);
 const sliderWrapper = document.querySelector(`.front`);
 const btnsToElem = document.querySelectorAll(`.sneaky-link`);
+
+let currentLanguage = `en`;
 
 for (let i = 0; i < btnsToElem.length; i++) {
   console.log(`i = ${i}`);
@@ -44,13 +48,35 @@ for (let i = 0; i < btnsToElem.length; i++) {
 initStartPage(slideElements, sliderWrapper);
 
 window.addEventListener(`load`, disableLoader);
-
 document.addEventListener(`scroll`, documentScrolled());
+languageBtn.addEventListener(`click`, changeLanguage);
 
 function disableLoader() {
   setTimeout(() => {
     document.querySelector(`.loader`).style.display = `none`;
   }, 100)
+}
+
+function changeLanguage() {
+  
+  switch(currentLanguage) {
+    case `en`:
+      currentLanguage = `ru`;
+      changeToRu();
+      break;
+    case `ru`:
+      currentLanguage = `en`;
+      changeToEn();
+      break;
+  }
+  
+  function changeToRu() {
+    console.log(currentLanguage);
+  }
+  
+  function changeToEn() {
+    console.log(currentLanguage);
+  }
 }
 
 function documentScrolled () {

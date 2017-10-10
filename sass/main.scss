@@ -1,9 +1,8 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
-@import "compass/reset";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 $content-width: 1300px;
 $min-width: 100%;
@@ -82,6 +81,7 @@ html {
   transition:  top 0.7s, box-shadow 0.7s, background-color 0.7s;
 
   .sneaky-panel__cool-face {
+    min-width: 70px;
     width: 70px;
     height: 70px;
 
@@ -109,6 +109,36 @@ html {
         color: $accent-color;
       }
     }
+  }
+}
+
+.language {
+  position: fixed;
+  top: 45px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 10px;
+  height: 50px;
+  z-index: 3;
+
+  border-radius: 10px 0 0 10px;
+  background: #ccc;
+  box-shadow: 0 0 5px 1px #555;
+
+  font-family: $sans-serif-font;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: $main-color;
+
+  transition: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    color: $accent-color;
   }
 }
 
@@ -246,7 +276,153 @@ html {
       @include flCenter();
       align-items: center;
       width: 45%;
+      
+      .info-wrapper {
+        position: relative;
+
+        display: flex;
+        margin-top: -150px;
+
+        .face {
+          width: 150px;
+          height: 150px;
+          
+          background: #eeeeff url(../img/face-over-table.svg) 50% 10px no-repeat;
+          background-size: contain;
+          
+          border-radius: 50%;
+        }
+
+        .laptop {
+          position: relative;
+          top: 50px;
+          left: -60px;
+
+          width: 120px;
+          height: 120px;
+
+          background: url(../img/pc-back.svg) 50% 10px no-repeat;
+          background-size: contain;
+        }
+        
+        .book {
+          position: relative;
+          top: 110px;
+          left: -100px;
+          
+          width: 120px;
+          height: 120px;
+          
+          background: url(../img/book.svg) 50% 10px no-repeat;
+          background-size: contain;
+        }
+      }
+
+      .idea-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        margin-top: -160px;
+        width: 300px;
+        height: 300px;
+        
+        border-radius: 50%;
+
+        .idea {
+          position: relative;
+          
+          width: 110px;
+          height: 110px;
+          
+          background: #eeeeff;
+          
+          border-radius: 50%;
+          overflow: hidden;
+
+          .html,
+          .css,
+          .js,
+          .react,
+          .git,
+          .gulp {
+            position: absolute;
+            
+            height: 80px;
+            width: auto;
+            
+            animation: techMove 18s infinite;
+          }
+
+          .html {
+            top: 15px;
+            left: 15px;
+          }
+          
+          .css {
+            top: 15px;
+            left: -110px;
+            
+            animation-delay: 3s;
+          }
+          
+          .js {
+            top: -110px;
+            left: -50px;
+            
+            animation-delay: 6s;
+          }
+          
+          .react {
+            top: -110px;
+            left: 15px;
+            
+            animation-delay: 9s;
+          }
+          
+          .git {
+            top: -110px;
+            left: 110px;
+            
+            animation-delay: 12s;
+          }
+          
+          .gulp {
+            top: 15px;
+            left: 110px;
+            
+            animation-delay: 15s;
+          }
+        }
+
+        .face {
+          width: 150px;
+          height: 150px;
+          
+          background: #eeeeff url(../img/face.svg) 50% 10px no-repeat;
+          background-size: contain;
+          
+          border-radius: 50%;
+        }
+      }
     }
+  }
+
+  @keyframes techMove {
+    0%,
+    100% { top: 45px; left: -110px; }
+    10% { top: 45px; left: -110px; }
+    15% { top: 15px; left: 15px; }
+    25% { top: 15px; left: 15px; }
+    30% { top: 45px; left: 110px; }
+    40% { top: 45px; left: 110px; }
+    45% { top: -110px; left: 110px; }
+    55% { top: -110px; left: 110px; }
+    60% { top: -110px; left: 15px; }
+    70% { top: -110px; left: 15px; }
+    75%{ top: -110px; left: -110px; }
+    85%{ top: -110px; left: -110px; }
   }
 
   .front__contact-me {
@@ -254,6 +430,7 @@ html {
     align-items: center;
     flex-direction: column;
     padding-top: 50px;
+    padding-bottom: 120px;
 
     font-size: 2rem;
     color: $text-color;
@@ -387,6 +564,16 @@ html {
   $content-width: 720px;
   .content {
     width: $content-width;
+  }
+  .front{
+    .cool-story {
+      flex-direction: column;
+      align-items: center;
+
+      .article-wrapper {
+        width: 80%;
+      }
+    }
   }
 }
 
