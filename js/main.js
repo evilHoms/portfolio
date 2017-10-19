@@ -6,6 +6,7 @@ const sneakyPanel = document.querySelector(`.sneaky-panel`);
 const languageBtn = document.querySelector(`.language`);
 
 
+// Элементы с текстом, для перевода на ру\ен.
 const about = document.querySelector(`.about`);
 const works = document.querySelector(`.works`);
 const contacts = document.querySelector(`.contacts`);
@@ -14,10 +15,17 @@ const helloIntro = document.querySelector(`.hello-mate__cool-introduction`);
 const aboutTitle = document.querySelector(`.about-me .cool-front-title`);
 const worksTitle = document.querySelector(`.my-works .cool-front-title`);
 const contactsTitle = document.querySelector(`.my-contacts .cool-front-title`);
-const coolStoryTitle = document.querySelector(`.about-me .cool-story__title`);
-const coolStoryText = document.querySelector(`.about-me .cool-story__text`);
-
-console.log(aboutTitle);
+const coolStoryTitleInfo = document.querySelector(`.info .cool-story__title`);
+const coolStoryTextInfo = document.querySelector(`.info .cool-story__text`);
+const coolStoryTitleTech = document.querySelector(`.tech .cool-story__title`);
+const coolStoryTextTech = document.querySelector(`.tech .cool-story__text`);
+const coolStoryTitleLearn = document.querySelector(`.learn .cool-story__title`);
+const coolStoryTextLearn = document.querySelector(`.learn .cool-story__text`);
+const contactMeName = document.querySelector(`.contact-me__name`);
+const contactMeImOne = document.querySelector(`.contact-me__im-one`);
+const contactMeText = document.querySelectorAll(`.contact-me__text`);
+const contactMeBtn = document.querySelector(`.front__contact-me .msg-btn`);
+const copyright = document.querySelector(`.copy-pls`);
 
 
 const headerHeight = sneakyPanel.offsetHeight;
@@ -26,7 +34,8 @@ const slideElements = document.querySelectorAll(`.slider-item`);
 const sliderWrapper = document.querySelector(`.front`);
 const btnsToElem = document.querySelectorAll(`.sneaky-link`);
 
-let currentLanguage = `en`;
+let currentLanguage = `ru`;
+changeLanguage();
 
 for (let i = 0; i < btnsToElem.length; i++) {
 
@@ -96,9 +105,25 @@ function changeLanguage() {
     aboutTitle.innerHTML = `Обо Мне`;
     worksTitle.innerHTML = `Мои Работы`;
     contactsTitle.innerHTML = `Мои Контакты`;
-    coolStoryTitle.innerHTML = `Инфо`;
-    coolStoryText.innerHTML = `Меня зовут Игорь и я начинающий фронт энд разработчик. 
+    coolStoryTitleInfo.innerHTML = `Инфо`;
+    coolStoryTextInfo.innerHTML = `Меня зовут Игорь и я начинающий фронт энд разработчик. 
 Получаю массу удовольствия от кодинга и стремлюсь к получению новых знаний и улучшению старых.`;
+    coolStoryTitleTech.innerHTML = `Используемые Технологии`;
+    coolStoryTextTech.innerHTML = `Верстаю макеты используя все возможности HTML5 и CSS3, сделаю это быстро используя Emmet и Sass,
+оживлю с помощью JS и всей мощи стандатов ECMA Script, превращу в полноценное веб-приложение с ReactJS.
+Так же в работе использую систему контроля версий Git и сборщик Gulp.`;
+    coolStoryTitleLearn.innerHTML = `Образование`;
+    coolStoryTextLearn.innerHTML = `Окончил университет Им. Ф.Ф. Ушакова в Новороссийске, имею высшее образование по инженерной специальности,
+прошел множество курсов по веб разработке, от простых бесплатных, как на "SoloLearn", так и более продвынутых, на "Нетологии".
+Постоянно занимаюсь самообразованием и стараюсь изучать новые технологии и совершенствоваться в уже изученных.`;
+    contactMeName.innerHTML = `Меня зовут Игорь`;
+    contactMeImOne.innerHTML = `Я тот, кто вам нужен!`;
+    contactMeText[0].innerHTML = `Если у вас есть проект, который вы хотите начать, или думаете,`;
+    contactMeText[1].innerHTML = `что вам нужна моя помощь с чем-то, тогда`;
+    contactMeBtn.innerHTML = `Напишите мне`;
+    copyright.innerHTML = `Копирайт`;
+    
+    initStartPage(slideElements, sliderWrapper);
   }
   
   function changeToEn() {
@@ -112,9 +137,25 @@ function changeLanguage() {
     aboutTitle.innerHTML = `About Me`;
     worksTitle.innerHTML = `My Works`;
     contactsTitle.innerHTML = `My Contacts`;
-    coolStoryTitle.innerHTML = `Some Info`;
-    coolStoryText.innerHTML = `My name is Igor and I'm front end developer.
+    coolStoryTitleInfo.innerHTML = `Some Info`;
+    coolStoryTextInfo.innerHTML = `My name is Igor and I'm front end developer.
 I got a lot of pleasure from coding and strive to gain new knowledge and improve old ones.`;
+    coolStoryTitleTech.innerHTML = `The Technologies I Use`;
+    coolStoryTextTech.innerHTML = `I rotate layouts with all the features of HTML5 and CSS3, I'll do it quickly using Emmet and Sass,
+I will revive with the help of Java Script and all the power of the ECMA Script standard, turn it into a full web application with ReactJS.
+I also use the Git version control system and the Gulp collector.`;
+    coolStoryTitleLearn.innerHTML = `My Education`;
+    coolStoryTextLearn.innerHTML = `I graduated from the University. F.F. Ushakov in Novorossiysk, I have a higher education in engineering,
+went through a lot of courses on web development, from simple free, both to "SoloLearn", and more advanced, on "Netology."
+I am constantly engaged in self-education and try to learn new technologies and improve in what I have already studied.`;
+    contactMeName.innerHTML = `My name is Igor`;
+    contactMeImOne.innerHTML = `I'm the one you need!`;
+    contactMeText[0].innerHTML = `If you have a project that you want to get started, think you need my help`;
+    contactMeText[1].innerHTML = `with something or just fancy saying hey, then get in touch.`;
+    contactMeBtn.innerHTML = `Message me`;
+    copyright.innerHTML = `Some copyright`;
+    
+    initStartPage(slideElements, sliderWrapper);
   }
 }
 
