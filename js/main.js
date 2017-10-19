@@ -76,9 +76,11 @@ document.addEventListener(`scroll`, documentScrolled());
 languageBtn.addEventListener(`click`, changeLanguage);
 
 function disableLoader() {
+  const loader = document.querySelector(`.loader`);
   setTimeout(() => {
-    document.querySelector(`.loader`).style.display = `none`;
-  }, 100)
+    loader.style.bottom = loader.offsetHeight + 'px';
+    loader.style.opacity = 0;
+  }, 100);
 }
 
 function changeLanguage() {
@@ -122,8 +124,8 @@ function changeLanguage() {
     contactMeText[1].innerHTML = `что вам нужна моя помощь с чем-то, тогда`;
     contactMeBtn.innerHTML = `Напишите мне`;
     copyright.innerHTML = `Копирайт`;
-    
-    initStartPage(slideElements, sliderWrapper);
+
+    correctHeight(slideElements, sliderWrapper);
   }
   
   function changeToEn() {
@@ -154,8 +156,8 @@ I am constantly engaged in self-education and try to learn new technologies and 
     contactMeText[1].innerHTML = `with something or just fancy saying hey, then get in touch.`;
     contactMeBtn.innerHTML = `Message me`;
     copyright.innerHTML = `Some copyright`;
-    
-    initStartPage(slideElements, sliderWrapper);
+
+    correctHeight(slideElements, sliderWrapper);
   }
 }
 
@@ -236,6 +238,12 @@ function initStartPage(arrOfPages, wrapper) {
   correctSliderWrapperHeight(wrapper,arrOfPages[0]);
 }
 
+function correctHeight(arrOfPages, wrapper) {
+  arrOfPages.forEach(el => {
+    if (el.classList.contains(`center-page`))
+      correctSliderWrapperHeight(wrapper, el);
+  });
+}
 
 function correctSliderWrapperHeight(wrapper, curElem) {
   wrapper.style.height = `${curElem.offsetHeight}px`;
