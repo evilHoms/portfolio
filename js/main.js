@@ -5,6 +5,21 @@ const sneakyPanel = document.querySelector(`.sneaky-panel`);
 
 const languageBtn = document.querySelector(`.language`);
 
+
+const about = document.querySelector(`.about`);
+const works = document.querySelector(`.works`);
+const contacts = document.querySelector(`.contacts`);
+const helloTitle = document.querySelector(`.hello-mate__title`);
+const helloIntro = document.querySelector(`.hello-mate__cool-introduction`);
+const aboutTitle = document.querySelector(`.about-me .cool-front-title`);
+const worksTitle = document.querySelector(`.my-works .cool-front-title`);
+const contactsTitle = document.querySelector(`.my-contacts .cool-front-title`);
+const coolStoryTitle = document.querySelector(`.about-me .cool-story__title`);
+const coolStoryText = document.querySelector(`.about-me .cool-story__text`);
+
+console.log(aboutTitle);
+
+
 const headerHeight = sneakyPanel.offsetHeight;
 
 const slideElements = document.querySelectorAll(`.slider-item`);
@@ -14,7 +29,7 @@ const btnsToElem = document.querySelectorAll(`.sneaky-link`);
 let currentLanguage = `en`;
 
 for (let i = 0; i < btnsToElem.length; i++) {
-  console.log(`i = ${i}`);
+
   btnsToElem[i].addEventListener(`click`, (e) => {
     
     for (let j = 0; j < slideElements.length; j++) {
@@ -72,10 +87,34 @@ function changeLanguage() {
   
   function changeToRu() {
     console.log(currentLanguage);
+    languageBtn.innerHTML = `Ру`;
+    about.innerHTML = `Обо мне`;
+    works.innerHTML = `Работы`;
+    contacts.innerHTML = `Контакты`;
+    helloTitle.innerHTML = `Я Игорь`;
+    helloIntro.innerHTML = `фронт энд разработчик`;
+    aboutTitle.innerHTML = `Обо Мне`;
+    worksTitle.innerHTML = `Мои Работы`;
+    contactsTitle.innerHTML = `Мои Контакты`;
+    coolStoryTitle.innerHTML = `Инфо`;
+    coolStoryText.innerHTML = `Меня зовут Игорь и я начинающий фронт энд разработчик. 
+Получаю массу удовольствия от кодинга и стремлюсь к получению новых знаний и улучшению старых.`;
   }
   
   function changeToEn() {
     console.log(currentLanguage);
+    languageBtn.innerHTML = `En`;
+    about.innerHTML = `About`;
+    works.innerHTML = `Works`;
+    contacts.innerHTML = `Contacts`;
+    helloTitle.innerHTML = `I'm Igor`;
+    helloIntro.innerHTML = `a front end developer `;
+    aboutTitle.innerHTML = `About Me`;
+    worksTitle.innerHTML = `My Works`;
+    contactsTitle.innerHTML = `My Contacts`;
+    coolStoryTitle.innerHTML = `Some Info`;
+    coolStoryText.innerHTML = `My name is Igor and I'm front end developer.
+I got a lot of pleasure from coding and strive to gain new knowledge and improve old ones.`;
   }
 }
 
@@ -158,7 +197,6 @@ function initStartPage(arrOfPages, wrapper) {
 
 
 function correctSliderWrapperHeight(wrapper, curElem) {
-  console.log(curElem.offsetHeight);
   wrapper.style.height = `${curElem.offsetHeight}px`;
 }
 
