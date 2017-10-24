@@ -384,6 +384,35 @@ html {
         outline: none;
         border: 1px solid rgba(0, 0, 0, 0.1);
         padding: 19px; }
+  .front .my-works__grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    .front .my-works__grid .my-works__grid__element {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 300px;
+      height: 400px;
+      margin-bottom: 80px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, #f0f0f0, #fafafa); }
+      .front .my-works__grid .my-works__grid__element .element__preview {
+        width: 290px;
+        height: 290px;
+        margin-top: 5px;
+        background: #e5e5e5; }
+      .front .my-works__grid .my-works__grid__element .element__github {
+        margin-bottom: 40px;
+        color: #ff7400;
+        text-decoration: none;
+        font-size: 1.8rem;
+        font-family: "Neucha", cursive;
+        transition: 0.5s; }
+        .front .my-works__grid .my-works__grid__element .element__github:hover {
+          font-size: 2rem; }
   .front .left-page {
     right: 0;
     left: -100%; }
